@@ -1,7 +1,7 @@
 const User = require('../models/user');
 
 module.exports = function (router){
-
+  //http://localhost.4440/api/users
   //   router.get('/', function (req,res){ //check the  connection
   //   res.send("the server says hi");
   // });
@@ -17,13 +17,13 @@ module.exports = function (router){
       || req.body.password == null || req.body.password == ' '
       || req.body.email == null || req.body.email== ''){
       
-      res.send('Ensure username, email and password were provided');
+      res.json({ success: false, message: 'Ensure username, email and password were provided.'});
      } else {
       user.save(function (err){
         if (err){
-          res.send('username or email already exists');
+          res.json({success: false, message: 'Username or email already exists.'});
         } else {
-          res.send('new user created');
+          res.json({success: true, message: 'New user created!'});
         }
       });
     }

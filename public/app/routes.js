@@ -17,7 +17,10 @@ angular.module('appRoutes', ['ngRoute'])
    })
 
   .when('/register', {
-    templateUrl: 'app/views/pages/users/register.html'
+    templateUrl: 'app/views/pages/users/register.html',
+    controller: 'RegisterController',
+    controllerAs: 'register'
+
    })
 
   .otherwise( { redirectTo: '/'} );
