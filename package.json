@@ -1,0 +1,23 @@
+{
+  "name": "mean_tut",
+  "version": "1.0.0",
+  "description": "MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "MEAN"
+  ],
+  "author": "Marina Shemesh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.8.2",
+    "nodejs": "0.0.0"
+  }
+}
