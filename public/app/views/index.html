@@ -10,10 +10,12 @@
     
    <!--  Cascade style sheets -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/animate.css" rel="stylesheet" type="text/css">
 
      <!-- Main Angular files -->
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
 
     <!-- Angular config/routes -->
     <script src="app/app.js"></script>
@@ -21,17 +23,19 @@
 
     <!-- Angular controllers -->
     <script src="app/controllers/userController.js"></script>
+    <script src="app/controllers/mainController.js"></script>
 
     <!-- Angular services -->
     <script src="app/services/userService.js"></script>
+    <script src="app/services/authService.js"></script>
 
     <title>MEAN tutorial</title>
     
    </head>
 
-  <body ng-app="userApp">
+  <body ng-app="userApp" ng-controller='MainCtrl as main'>
 
-    <!-- Fixed navbar -->
+    <!-- Fixed navbar --> 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -46,9 +50,10 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/login">Login</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/register">Register</a></li>
+            <li><a href="/about">About</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">

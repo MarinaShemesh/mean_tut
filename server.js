@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.use ('/api', appRoutes);
 
-
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/tutorial', {useMongoClient: true});
 
 app.get('*', function (req,res){

@@ -23,6 +23,11 @@ angular.module('appRoutes', ['ngRoute'])
 
    })
 
+  .when('/login', {
+    templateUrl: 'app/views/pages/users/login.html',
+ 
+   })
+
   .otherwise( { redirectTo: '/'} );
 
     $locationProvider.html5Mode({//get rid of the bases in the url

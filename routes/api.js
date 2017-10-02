@@ -6,7 +6,7 @@ module.exports = function (router){
   //   res.send("the server says hi");
   // });
 
-
+//USER REGISTRATION ROUTE
   router.post('/users', function (req,res){
     const user = new User();
     user.username = req.body.username;
@@ -29,8 +29,33 @@ module.exports = function (router){
     }
     
   });
+  
+  //USER LOGIN ROUTE
+  //http://localhost.4440/api/authenticate
+  router.post('/authenticate', function (req, res){
+    // res.send('testing the new route'); tet in postman
+   User.findOne({username:req.body.username})
+     .select('email username password')
+     .exec(function (err, user){
+      
+        if (err) throw err;
 
+          if (!user) {
+              res.json({ success: false, message: 'Could not authenticate' });
+          } else if (user) {
+              if (req.body.password) {
+                  const validPassword = user.comparePassword(req.body.password);
+                  if (!validPassword) {
+                      res.json({ success: false, message: 'Could not validate Password' });
+                  } else {
+                      res.json({ success: true, message: 'User Authenticate' });
+                  }
+              } else {
+                  res.json({ success: false, message: 'No password provided' });
+              }
+          }
+      });
+  });﻿
   return router;
-
 }
 

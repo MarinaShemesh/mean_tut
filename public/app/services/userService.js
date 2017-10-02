@@ -4,9 +4,8 @@ angular.module('userService', [])
   //  console.log('testing user services again');
   .factory('User', function ($http){
 
-    userFactory = {};
+   const userFactory = {};
 
-    // User.create(regData)
     userFactory.create = function(regData){
       return $http.post('/api/users', regData)
     }
