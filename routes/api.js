@@ -48,7 +48,7 @@ module.exports = function (router){
               if (req.body.password) {
                   const validPassword = user.comparePassword(req.body.password);
                   if (!validPassword) {
-                      res.json({ success: false, message: 'Could not validate Password' });
+                      res.json({ success: false, message: 'Could not validate password' });
                   } else {
                       const token = jwt.sign({username:user.username, email:user.email}, 
                                 secret, {expiresIn: '24h'});

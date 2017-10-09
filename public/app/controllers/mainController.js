@@ -6,19 +6,24 @@ angular.module('mainController', ['authService'])
  function MainCtrl(Auth, $timeout, $location, $rootScope){
    // console.log('testing the MainCtlr');
     const app = this;
+    app.loadme = false; //remove the ng flicker
 
     $rootScope.$on('$routeChangeStart', function () {
 
       if(Auth.isLoggedIn()){
-        console.log('success: User is logged in');
+        console.log('Success: User is logged in');
+        app.isLoggedIn = true;
         Auth.getUser().then(function (data){
-          console.log(data.data.username);
+          // console.log(data.data.username);
           app.username = data.data.username;
           app.usermail = data.data.email;
+          app.loadme = true;
         });
       } else {
-        console.log('Failure not logged in');
+        // console.log('Failure not logged in');
+        app.isLoggedIn = false;
         app.username = '';
+        app.loadme = true;
       }
 
     });
