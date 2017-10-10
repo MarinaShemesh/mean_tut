@@ -34,6 +34,12 @@ angular.module('appRoutes', ['ngRoute'])
     templateUrl: 'app/views/pages/users/profile.html',
    })
 
+  .when('/facebook/:token', {
+    templateUrl: 'app/views/pages/users/social/social.html',
+    controller:'facebookController',
+    controllerAs: 'facebook'
+   })
+
   .otherwise({ redirectTo: '/'});
 
     $locationProvider.html5Mode({//get rid of the bases in the url

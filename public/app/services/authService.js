@@ -23,6 +23,11 @@ angular.module('authService', [])
         return false;
       }
     };
+
+   // Auth.facebook(token);
+    authFactory.facebook = function (token){
+      AuthToken.setToken(token);
+    };
     
     // Auth.getUser();
     authFactory.getUser = function(){

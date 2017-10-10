@@ -1,6 +1,7 @@
 // console.log('testing usercontroller');
 angular.module('userController', ['userService'])
- .controller('RegisterController', RegisterController);
+   .controller('RegisterController', RegisterController)
+   .controller('facebookController', facebookController);
 
 RegisterController.$inject = ['$scope', '$http', '$location', '$timeout' ,'User'];
 function RegisterController($scope, $http, $location, $timeout, User){
@@ -33,4 +34,12 @@ function RegisterController($scope, $http, $location, $timeout, User){
     });
   }
 }
+
+facebookController.$inject = ['$routeParams', 'Auth', '$location'];
+function facebookController($routeParams, Auth, $location){
+  // console.log('token:', $routeParams.token);
+  Auth.facebook($routeParams.token);
+  $location.path('/');
+};
+
 
